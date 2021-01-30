@@ -17,10 +17,15 @@ struct Diedrate: View {
             ZStack {
                 MyLines(startX: 100, startY: 500, endY: 100)
                 Button(action: {
-                    if (modelData.intake.curIntake == modelData.intake.neededIntake) {
-                        counter += 1
-                    } else {
+                    var cur = modelData.intake.curIntake
+                    let needed = modelData.intake.neededIntake
+                    
+                    if (cur < needed) {
                         modelData.intake.curIntake += 1
+                        cur += 1
+                    }
+                    if (cur == needed) {
+                        counter += 1
                     }
                 }) {
                     HStack {
@@ -28,7 +33,7 @@ struct Diedrate: View {
                         Text("\(modelData.intake.neededIntake - modelData.intake.curIntake)")
                     }
                 }
-                ConfettiCannon(counter: $counter, num: 1, repetitions: 100, repetitionInterval: 0.01)
+                ConfettiCannon(counter: $counter, num: 1, confettis: [.text("🔫"), .text("🌊"), .text("🚰"), .text("💦"), .text("💧")], confettiSize: 20, repetitions: 100, repetitionInterval: 0.01)
             }
             Button(action: {
                 modelData.intake.curIntake = 0
@@ -47,7 +52,6 @@ struct Diedrate_Previews: PreviewProvider {
             .environmentObject(modelData)
     }
 }
-
 
 struct MyLines: View {
     @EnvironmentObject var modelData: ModelData
