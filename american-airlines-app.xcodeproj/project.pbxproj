@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,7 +11,29 @@
 		C2BFBC5725C5D96E006144DA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BFBC5625C5D96E006144DA /* ContentView.swift */; };
 		C2BFBC5925C5D970006144DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2BFBC5825C5D970006144DA /* Assets.xcassets */; };
 		C2BFBC5C25C5D970006144DA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2BFBC5B25C5D970006144DA /* Preview Assets.xcassets */; };
+		C2BFBC6B25C5DC1F006144DA /* Diedrate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BFBC6A25C5DC1F006144DA /* Diedrate.swift */; };
+		C2BFBC6F25C5DC2D006144DA /* GetBuff.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BFBC6E25C5DC2D006144DA /* GetBuff.swift */; };
+		C2BFBC7225C5DC3D006144DA /* Snooze.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BFBC7125C5DC3D006144DA /* Snooze.swift */; };
+		C2BFBC7525C5DC49006144DA /* SendHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BFBC7425C5DC49006144DA /* SendHelp.swift */; };
+		C2BFBC7825C5DE03006144DA /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BFBC7725C5DE03006144DA /* ModelData.swift */; };
+		C2BFBC7B25C5DE23006144DA /* Intake.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BFBC7A25C5DE23006144DA /* Intake.swift */; };
+		C2BFBC7F25C5EAF5006144DA /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = C2BFBC7E25C5EAF5006144DA /* ConfettiSwiftUI */; };
+		C2BFBC8025C5EAF5006144DA /* ConfettiSwiftUI in Embed Frameworks */ = {isa = PBXBuildFile; productRef = C2BFBC7E25C5EAF5006144DA /* ConfettiSwiftUI */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C2BFBC8125C5EAF6006144DA /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C2BFBC8025C5EAF5006144DA /* ConfettiSwiftUI in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		C2BFBC5125C5D96E006144DA /* american-airlines-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "american-airlines-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -20,6 +42,12 @@
 		C2BFBC5825C5D970006144DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C2BFBC5B25C5D970006144DA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C2BFBC5D25C5D970006144DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C2BFBC6A25C5DC1F006144DA /* Diedrate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diedrate.swift; sourceTree = "<group>"; };
+		C2BFBC6E25C5DC2D006144DA /* GetBuff.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBuff.swift; sourceTree = "<group>"; };
+		C2BFBC7125C5DC3D006144DA /* Snooze.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snooze.swift; sourceTree = "<group>"; };
+		C2BFBC7425C5DC49006144DA /* SendHelp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendHelp.swift; sourceTree = "<group>"; };
+		C2BFBC7725C5DE03006144DA /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
+		C2BFBC7A25C5DE23006144DA /* Intake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intake.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2BFBC7F25C5EAF5006144DA /* ConfettiSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,6 +81,11 @@
 		C2BFBC5325C5D96E006144DA /* american-airlines-app */ = {
 			isa = PBXGroup;
 			children = (
+				C2BFBC6925C5DC0D006144DA /* sendHelp */,
+				C2BFBC6825C5DC08006144DA /* snooze */,
+				C2BFBC6725C5DC04006144DA /* getBuff */,
+				C2BFBC6525C5DBE9006144DA /* diedrate */,
+				C2BFBC6425C5DBE5006144DA /* model */,
 				C2BFBC5425C5D96E006144DA /* american_airlines_appApp.swift */,
 				C2BFBC5625C5D96E006144DA /* ContentView.swift */,
 				C2BFBC5825C5D970006144DA /* Assets.xcassets */,
@@ -69,6 +103,47 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		C2BFBC6425C5DBE5006144DA /* model */ = {
+			isa = PBXGroup;
+			children = (
+				C2BFBC7725C5DE03006144DA /* ModelData.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		C2BFBC6525C5DBE9006144DA /* diedrate */ = {
+			isa = PBXGroup;
+			children = (
+				C2BFBC6A25C5DC1F006144DA /* Diedrate.swift */,
+				C2BFBC7A25C5DE23006144DA /* Intake.swift */,
+			);
+			path = diedrate;
+			sourceTree = "<group>";
+		};
+		C2BFBC6725C5DC04006144DA /* getBuff */ = {
+			isa = PBXGroup;
+			children = (
+				C2BFBC6E25C5DC2D006144DA /* GetBuff.swift */,
+			);
+			path = getBuff;
+			sourceTree = "<group>";
+		};
+		C2BFBC6825C5DC08006144DA /* snooze */ = {
+			isa = PBXGroup;
+			children = (
+				C2BFBC7125C5DC3D006144DA /* Snooze.swift */,
+			);
+			path = snooze;
+			sourceTree = "<group>";
+		};
+		C2BFBC6925C5DC0D006144DA /* sendHelp */ = {
+			isa = PBXGroup;
+			children = (
+				C2BFBC7425C5DC49006144DA /* SendHelp.swift */,
+			);
+			path = sendHelp;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -79,12 +154,16 @@
 				C2BFBC4D25C5D96E006144DA /* Sources */,
 				C2BFBC4E25C5D96E006144DA /* Frameworks */,
 				C2BFBC4F25C5D96E006144DA /* Resources */,
+				C2BFBC8125C5EAF6006144DA /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "american-airlines-app";
+			packageProductDependencies = (
+				C2BFBC7E25C5EAF5006144DA /* ConfettiSwiftUI */,
+			);
 			productName = "american-airlines-app";
 			productReference = C2BFBC5125C5D96E006144DA /* american-airlines-app.app */;
 			productType = "com.apple.product-type.application";
@@ -112,6 +191,9 @@
 				Base,
 			);
 			mainGroup = C2BFBC4825C5D96E006144DA;
+			packageReferences = (
+				C2BFBC7D25C5EAF5006144DA /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */,
+			);
 			productRefGroup = C2BFBC5225C5D96E006144DA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -138,8 +220,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2BFBC7525C5DC49006144DA /* SendHelp.swift in Sources */,
+				C2BFBC7225C5DC3D006144DA /* Snooze.swift in Sources */,
 				C2BFBC5725C5D96E006144DA /* ContentView.swift in Sources */,
+				C2BFBC7B25C5DE23006144DA /* Intake.swift in Sources */,
 				C2BFBC5525C5D96E006144DA /* american_airlines_appApp.swift in Sources */,
+				C2BFBC6B25C5DC1F006144DA /* Diedrate.swift in Sources */,
+				C2BFBC6F25C5DC2D006144DA /* GetBuff.swift in Sources */,
+				C2BFBC7825C5DE03006144DA /* ModelData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,6 +416,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C2BFBC7D25C5EAF5006144DA /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/simibac/ConfettiSwiftUI";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C2BFBC7E25C5EAF5006144DA /* ConfettiSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C2BFBC7D25C5EAF5006144DA /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */;
+			productName = ConfettiSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C2BFBC4925C5D96E006144DA /* Project object */;
 }
