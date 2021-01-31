@@ -18,18 +18,6 @@ class DBAccess {
         self.dbref = dbref
     }
     
-    func getMapUrl(text:String) -> String {
-        let pattern = #"(?<=fvPublicSiteFT)(.*?)(?=">)"#
-        let regex = try! NSRegularExpression(pattern: pattern, options: .anchorsMatchLines)
-        let stringRange = NSRange(location: 0, length: text.utf16.count)
-        let mapstring = regex.firstMatch(in: text, range: stringRange)
-        let r = mapstring?.range
-        let matchStr = (text as NSString).substring(with: r!)
-        
-        //        let timeRemPat = #"(?<=Time Remaining:)(.*?)(?=">)"#
-        return matchStr.replacingOccurrences(of: "&amp;", with: "&")
-    }
-    
     
     func sendRequest(id: String, name: String, time: Date, content: String) {
         let stamp = DateFormatter.localizedString(from: time, dateStyle: .short, timeStyle: .short)
@@ -48,7 +36,6 @@ class DBAccess {
             group.leave()
         })
         return self.numahead
-
     }
     
     func readRequests() {
