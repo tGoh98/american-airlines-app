@@ -23,7 +23,7 @@ struct SendHelp: View {
         } else {
             VStack {
                 if (!received) {
-                    Text("Message a Flight Attendant")
+                    Text("Message a Crew Member")
                         .font(Font.title2.weight(.semibold))
                         .foregroundColor(Color.init(hex: "0E57BD"))
                         .padding()
@@ -65,11 +65,11 @@ struct SendHelp: View {
                         }
                         Button(action: {
                             access.getNumAhead(time: Date.init())
-                            content = "I'd like an extra blank/pillow"
-                            access.sendRequest(id: modelData.seatnum, name: modelData.name, time: Date.init(), content: "I'd like an extra blank/pillow")
+                            content = "I'd like an extra blanket/pillow"
+                            access.sendRequest(id: modelData.seatnum, name: modelData.name, time: Date.init(), content: "I'd like an extra blanket/pillow")
                             self.received = true
                         }) {
-                            MsgCard(msg: "I'd like an extra blank/pillow")
+                            MsgCard(msg: "I'd like an extra blanket/pillow")
                         }
                         Button(action: {
                             access.getNumAhead(time: Date.init())

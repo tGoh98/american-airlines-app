@@ -36,7 +36,7 @@ struct Attendant: View {
     
     var body: some View {
         VStack {
-            Text("Flight Attendant Messages")
+            Text("Crew Member Messages")
                 .font(Font.title2.weight(.semibold))
                 .foregroundColor(Color.init(hex: "0E57BD"))
                 .padding()

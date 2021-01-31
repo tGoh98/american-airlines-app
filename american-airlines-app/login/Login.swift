@@ -43,12 +43,12 @@ struct Login: View {
                     
                     Button(action: { modelData.attendantMode = true; self.goToLogin = true }) {
                         Group {
-                            Text("Attendant Login")
+                            Text("Crew Member Login")
                                 .foregroundColor(.white)
                                 .font(Font.title3.weight(.semibold))
                                 .padding(.vertical, 5)
                         }
-                        .padding(.horizontal, 60)
+                        .padding(.horizontal, 40)
                         .padding(.vertical, 5)
                         .background(Color.init(hex: "D33846").clipShape(RoundedRectangle(cornerRadius: 8.0)))
                     }
@@ -105,7 +105,7 @@ struct Login: View {
                         .font(.title3)
                 }
                 .padding(.horizontal, 150)
-                .padding(.vertical, 5)
+                .padding(.vertical, 10)
                 .background(modelData.attendantMode ? Color.init(hex:"D33846") : Color.init(hex: "0E57BD")).clipShape(RoundedRectangle(cornerRadius: 8.0))
                 Spacer()
             }

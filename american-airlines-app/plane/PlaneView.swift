@@ -28,5 +28,6 @@ struct PlaneView: View {
 struct PlaneView_Previews: PreviewProvider {
     static var previews: some View {
         PlaneView(pImg: Image("aaLogo"))
+            .environmentObject(ModelData())
     }
 }

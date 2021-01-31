@@ -14,7 +14,7 @@ struct ContentView: View {
     let backgroundImages = ["backgroundImg1", "backgroundImg2", "backgroundImg3", "backgroundImg4", "backgroundImg5", "backgroundImg6"]
     @State var activeImageIndex = 3
     let imageSwitchTimer = Timer.publish(every: 30, on: .main, in: .common).autoconnect()
-    @State var selectedTab = 2
+    @State var selectedTab = 0
     @State var planeImg: Image = Image("aaLogo")
     var first: Bool = true
     
