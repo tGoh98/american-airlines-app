@@ -16,6 +16,7 @@ struct ContentView: View {
     let imageSwitchTimer = Timer.publish(every: 30, on: .main, in: .common).autoconnect()
     @State var selectedTab = 2
     @State var planeImg: Image = Image("aaLogo")
+    var first: Bool = true
     
     init() {
         UITabBar.appearance().barTintColor = UIColor.white
@@ -31,33 +32,38 @@ struct ContentView: View {
         let mapstring = regex.firstMatch(in: text, range: stringRange)
         let r = mapstring?.range
         let matchStr = (text as NSString).substring(with: r!)
-                
         return matchStr.replacingOccurrences(of: "&amp;", with: "&")
     }
     
 //    let timeRemPat = #"(?<=Time Remaining:)(.*?)(?=min<)"#
 //    let altitude = #"(?<=Altitude)(.*?)(?=">feet)"#
 //
-    func getTimeRem(text: String) -> String {
-        let timeRemPat = #"(?<=Time Remaining:)(.*?)(?=min<)"#
-        let regex = try! NSRegularExpression(pattern: timeRemPat, options: .anchorsMatchLines)
-        let stringRange = NSRange(location: 1000, length: text.utf16.count)
+    func getTimeRem(text: String) {
+        let timeRemPat = #"(?<=FlightTrackerData)(.|\n)*(?=min)"#
+        let regex = try! NSRegularExpression(pattern: timeRemPat, options: .caseInsensitive)
+        let stringRange = NSRange(location: 0, length: text.utf16.count)
         let mapstring = regex.firstMatch(in: text, range: stringRange)
         let r = mapstring?.range
         let matchStr = (text as NSString).substring(with: r!)
-        let regex2 = try! NSRegularExpression(pattern: #"[0-9]+"#, options: .anchorsMatchLines)
-        return (text as NSString).substring(with: (regex2.firstMatch(in: matchStr, range: NSRange(location: 0, length: matchStr.utf16.count))?.range)!)
+        let trim = matchStr.replacingOccurrences(of: "\">", with: "")
+        modelData.timeRem = trim + "min remaining"
+        
+        
+//        let regex2 = try! NSRegularExpression(pattern: #"[0-9]+"#, options: .anchorsMatchLines)
+//        return (text as NSString).substring(with: (regex2.firstMatch(in: matchStr, range: NSRange(location: 0, length: matchStr.utf16.count))?.range)!)
     }
 
-    func getAlt(text: String) -> String {
-        let timeRemPat = #"(?<=FlightTrackerData)(.*?)(?=">feet)"#
+    func getAlt(text: String)  {
+        let timeRemPat = #"(?<=FlightTrackerData)(.|\n)*(?=feet)"#
         let regex = try! NSRegularExpression(pattern: timeRemPat, options: .anchorsMatchLines)
-        let stringRange = NSRange(location: 1000, length: text.utf16.count)
-        let mapstring = regex.firstMatch(in: text, range: stringRange)
+        let stringRange = NSRange(location: 0, length: text.utf16.count)
+        let mapstring = regex.firstMatch(in: text,  range: stringRange)
         let r = mapstring?.range
-        let matchStr = (text as NSString).substring(with: r!)
-        let regex2 = try! NSRegularExpression(pattern: #"[0-9]+"#, options: .anchorsMatchLines)
-        return (text as NSString).substring(with: (regex2.firstMatch(in: matchStr, range: NSRange(location: 0, length: matchStr.utf16.count))?.range)!)
+        var matchStr = (text as NSString).substring(with: r!)
+        modelData.altitude = "Altitude: " + matchStr.replacingOccurrences(of: "\">", with: "") + "feet"
+        
+        
+        
     }
     
     
@@ -86,14 +92,27 @@ struct ContentView: View {
             do {
                 let contents = String(data: data, encoding: String.Encoding.utf8)
                 let parsedMapStr =  getMapUrl(text: contents!)
+                print(parsedMapStr)
+                    
+                
                 let mapUrl = URL(string: "https://www.flightview.com/fvPublicSiteFT" + parsedMapStr)
-                print(mapUrl)
+//                print(contents!)
+                do {
+                    try getTimeRem(text: contents!)
+                    try getAlt(text: contents!)
+                } catch  {
+                    print("failed to get time remaining")
+                    
+                }
+                
+                
+//                print(mapUrl)
                 let maptask = session.dataTask(with: mapUrl!) {(data, resp, error) in
                     if let e = error {
                         print("Error retrievinng map photo: \(e)")
                     } else {
                         if let res = resp as? HTTPURLResponse {
-                            print("downloaed pic data with code \(res.statusCode)")
+//                            print("downloaed pic data with code \(res.statusCode)")
                             if let imageData = data {
                                 let image = UIImage(data: imageData)
                                 //                                                    modelData.planeImg = Image(uiImage: image!)

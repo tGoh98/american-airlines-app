@@ -93,8 +93,11 @@ struct Login: View {
                 .padding(.horizontal, 25)
                 Button(action: {
                     modelData.name = lastName
-                    modelData.flightNum = flightNum
-                    
+                    modelData.fn = flightNum
+                    let df: DateFormatter = DateFormatter()
+                    df.dateFormat = "yyyyMMdd"
+                    modelData.date = df.string(from: Date.init())
+                    print(modelData.date)
                     self.step += 1
                 }) {
                     Text("Login")
@@ -117,6 +120,75 @@ struct Login: View {
         )
     }
 }
+
+//func getMapUrl(text:String) -> String {
+//    let pattern = #"(?<=fvPublicSiteFT)(.*?)(?=">)"#
+//    let regex = try! NSRegularExpression(pattern: pattern, options: .anchorsMatchLines)
+//    let stringRange = NSRange(location: 0, length: text.utf16.count)
+//    let mapstring = regex.firstMatch(in: text, range: stringRange)
+//    let r = mapstring?.range
+//    let matchStr = (text as NSString).substring(with: r!)
+//
+//    return matchStr.replacingOccurrences(of: "&amp;", with: "&")
+//}
+
+//
+//func downloadImage(fn: String, date: String) {
+//    let url = URL(string: "https://www.flightview.com/TravelTools/FlightTrackerQueryResults.asp?qtype=sfi&sfw=%2FFV%2FTravelTools%2FMain&whenArrDep=dep&namal=AA+American+Airlines&al=AA&fn="+fn + "&whenDate=" + date + "&input=Track+Flight")
+//
+//        let request = NSMutableURLRequest(url: url! as URL)
+//    let session = URLSession.shared
+//
+//    request.httpMethod = "GET"
+//    request.addValue("User-Agent", forHTTPHeaderField: "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36")
+//    request.addValue("Upgrade-Insecure-Requests", forHTTPHeaderField: "1")
+//    request.addValue("DNT", forHTTPHeaderField: "1")
+//    request.addValue("Accept", forHTTPHeaderField: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8")
+//    request.addValue("Accept-Language", forHTTPHeaderField: "en-US,en;q=0.5")
+//    request.addValue("Accept-Encoding", forHTTPHeaderField: "gzip, deflate")
+//
+//
+//
+//    let task = session.dataTask(with: request as URLRequest) {
+//        data, response, error in guard let data = data else {return}
+//        do {
+//            let contents = String(data: data, encoding: String.Encoding.utf8)
+//            let parsedMapStr =  getMapUrl(text: contents!)
+//            let mapUrl = URL(string: "https://www.flightview.com/fvPublicSiteFT" + parsedMapStr)
+//            print(mapUrl)
+//            let maptask = session.dataTask(with: mapUrl!) {(data, resp, error) in
+//                if let e = error {
+//                    print("Error retrievinng map photo: \(e)")
+//                } else {
+//                    if let res = resp as? HTTPURLResponse {
+//                        print("downloaed pic data with code \(res.statusCode)")
+//                        if let imageData = data {
+//                            let image = UIImage(data: imageData)
+//                            //                                                    modelData.planeImg = Image(uiImage: image!)
+//                            //                                                    modelData.planeImg = Image("alarmIcon")
+////                            return Image(uiImage: image!)
+//                        } else {
+//                            print("Couldnnt get image, it is nil")
+//                        }
+//                    } else {
+//                        print("couldnt get response code")
+//                    }
+//                }
+//
+//            }
+//            maptask.resume()
+//
+//
+//        } catch let error {
+//            print(error.localizedDescription)
+//        }
+//
+//    }
+//    task.resume()
+//
+//}
+
+
 
 struct Login_Previews: PreviewProvider {
     static var previews: some View {
