@@ -60,8 +60,8 @@ class DBAccess {
                 let v = rest.value as? NSDictionary
                 let name = v?["name"] as? String ?? ""
                 let content = v?["content"] as? String ?? ""
-                let time = v?["time"] as? Date
-                localReqs.append(Request(id: rest.key, requester: name, time: time ?? Date.init(), content: content))
+                let time = v?["time"] as? String ?? ""
+                localReqs.append(Request(id: rest.key, requester: name, time: time, content: content))
                 self.reqs = localReqs
             }
         })

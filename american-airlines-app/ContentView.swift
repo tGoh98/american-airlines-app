@@ -93,11 +93,17 @@ struct ContentView: View {
                             .tabItem {
                                 Text("")
                             }.tag(3)
-                        Attendant()
+                        SendHelp()
                             .background(BackgroundHelper())
                             .tabItem {
                                 Text("")
-                            }.tag(4)
+                            }
+                            .tag(4)
+                            .background(Color.white.clipShape(RoundedRectangle(cornerRadius: 8.0)))
+                            .padding(.leading, 20)
+                            .padding(.trailing, 20)
+                            .padding(.top, 20)
+                            .padding(.bottom, 40)
                     }
                     HStack {
                         Button(action: { self.selectedTab = 0 }) {

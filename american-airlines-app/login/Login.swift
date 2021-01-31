@@ -10,7 +10,7 @@ import SwiftUI
 struct Login: View {
     @EnvironmentObject var modelData: ModelData
     @Binding var step: Int
-    @State var goToLogin: Bool = true
+    @State var goToLogin: Bool = false
     @State var lastName: String = ""
     @State var username: String = ""
     @State var flightNum: String = ""

@@ -17,7 +17,7 @@ struct PlaneExercises: View {
                     .font(Font.title2.weight(.semibold))
                     .foregroundColor(Color.init(hex: "0E57BD"))
                     .padding()
-                    .offset(x:50)
+                    .offset(x:75)
                 Spacer()
                 Button(action: {
                     self.buffIndex = 1

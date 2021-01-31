@@ -11,13 +11,13 @@ class Request: Identifiable {
     
     var id: String
     var requester: String
-    var time: Date
+    var reqObjTime: String
     var content: String
     
-    init(id: String, requester: String, time: Date, content: String) {
+    init(id: String, requester: String, time: String, content: String) {
         self.id = id
         self.requester = requester
-        self.time = time
+        self.reqObjTime = time
         self.content = content
     }
     
