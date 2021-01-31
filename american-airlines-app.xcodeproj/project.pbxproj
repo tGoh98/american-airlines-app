@@ -34,6 +34,7 @@
 		D85FCEF725C67DAE00C8D81F /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85FCEF625C67DAE00C8D81F /* Request.swift */; };
 		D85FCEF925C6841800C8D81F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D85FCEF825C6841800C8D81F /* GoogleService-Info.plist */; };
 		D85FCEFB25C68BA700C8D81F /* requestIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85FCEFA25C68BA700C8D81F /* requestIO.swift */; };
+		D85FCEFD25C6B82E00C8D81F /* Attendant.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85FCEFC25C6B82E00C8D81F /* Attendant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -80,6 +81,7 @@
 		D85FCEF625C67DAE00C8D81F /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		D85FCEF825C6841800C8D81F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D85FCEFA25C68BA700C8D81F /* requestIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = requestIO.swift; sourceTree = "<group>"; };
+		D85FCEFC25C6B82E00C8D81F /* Attendant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attendant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +224,7 @@
 				C2BFBC7425C5DC49006144DA /* SendHelp.swift */,
 				D85FCEF625C67DAE00C8D81F /* Request.swift */,
 				D85FCEFA25C68BA700C8D81F /* requestIO.swift */,
+				D85FCEFC25C6B82E00C8D81F /* Attendant.swift */,
 			);
 			path = sendHelp;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 				C20DDC4B25C6BD0E002D711B /* Login.swift in Sources */,
 				D85FCEF725C67DAE00C8D81F /* Request.swift in Sources */,
 				C2BFBC5525C5D96E006144DA /* american_airlines_appApp.swift in Sources */,
+				D85FCEFD25C6B82E00C8D81F /* Attendant.swift in Sources */,
 				C2BFBC8525C65068006144DA /* PlaneExercises.swift in Sources */,
 				D85FCEFB25C68BA700C8D81F /* requestIO.swift in Sources */,
 				C2BFBC6B25C5DC1F006144DA /* Diedrate.swift in Sources */,

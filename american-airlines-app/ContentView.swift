@@ -93,7 +93,7 @@ struct ContentView: View {
                             .tabItem {
                                 Text("")
                             }.tag(3)
-                        SendHelp()
+                        Attendant()
                             .background(BackgroundHelper())
                             .tabItem {
                                 Text("")
