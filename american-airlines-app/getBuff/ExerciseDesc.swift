@@ -17,13 +17,16 @@ struct ExerciseDesc: View {
                     self.buffIndex = 0
                 }) {
                     Image("leftArrow")
+                        .frame(minWidth: 50, minHeight: 25)
+                        .contentShape(Rectangle())
                 }
+                Spacer()
                 Text("Exercise Descriptions")
                     .font(Font.title2.weight(.semibold))
                     .foregroundColor(Color.init(hex: "0E57BD"))
                     .padding()
+                    .offset(x:-50)
             }
-            .padding(.trailing, 75)
             ScrollView {
                 Divider()
                 HStack {
