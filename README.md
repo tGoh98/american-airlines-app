@@ -8,4 +8,4 @@ FlightCare was entered for TAMUhack 2021! Watch the [Demo Video](https://www.you
 * Powerful UI build with SwiftUI
 
 ## Team
-FlightCare was created by Timothy Goh (tGoh98), Colin King (colinbking), Camsy Huang, and Christina Zhou for Texas A&M's hackathon, TAMUhack. Read more about it in the [Devpost](https://devpost.com/software/flightcare).
+FlightCare was created by Timothy Goh (tGoh98), Colin King (colinbking), Camsy Huang, and Christina Zhou for Texas A&M's hackathon, TAMUhack. Read more about it in the [Devpost](https://devpost.com/software/fly-with-american-airlines).
