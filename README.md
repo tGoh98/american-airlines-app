@@ -1,5 +1,5 @@
 # FlightCare
-FlightCare was entered for TAMUhack 2021! Watch the [Demo Video](https://www.youtube.com/watch?v=eEHX2ZniSGE&ab_channel=Christina)!
+FlightCare was entered for TAMUhack 2021! Watch the [Demo Video](https://www.youtube.com/watch?v=8sTGAy-jPdE&feature=youtu.be&ab_channel=Christina)!
  
 ## Features
 * Live flight maps with FlightView's API
