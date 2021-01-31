@@ -19,6 +19,7 @@
 		C2BFBC7B25C5DE23006144DA /* Intake.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BFBC7A25C5DE23006144DA /* Intake.swift */; };
 		C2BFBC7F25C5EAF5006144DA /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = C2BFBC7E25C5EAF5006144DA /* ConfettiSwiftUI */; };
 		C2BFBC8025C5EAF5006144DA /* ConfettiSwiftUI in Embed Frameworks */ = {isa = PBXBuildFile; productRef = C2BFBC7E25C5EAF5006144DA /* ConfettiSwiftUI */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D85FCEE825C6633E00C8D81F /* PlaneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85FCEE725C6633E00C8D81F /* PlaneView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -48,6 +49,7 @@
 		C2BFBC7425C5DC49006144DA /* SendHelp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendHelp.swift; sourceTree = "<group>"; };
 		C2BFBC7725C5DE03006144DA /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		C2BFBC7A25C5DE23006144DA /* Intake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intake.swift; sourceTree = "<group>"; };
+		D85FCEE725C6633E00C8D81F /* PlaneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaneView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 		C2BFBC5325C5D96E006144DA /* american-airlines-app */ = {
 			isa = PBXGroup;
 			children = (
+				D85FCEE625C6632400C8D81F /* plane */,
 				C2BFBC6925C5DC0D006144DA /* sendHelp */,
 				C2BFBC6825C5DC08006144DA /* snooze */,
 				C2BFBC6725C5DC04006144DA /* getBuff */,
@@ -142,6 +145,14 @@
 				C2BFBC7425C5DC49006144DA /* SendHelp.swift */,
 			);
 			path = sendHelp;
+			sourceTree = "<group>";
+		};
+		D85FCEE625C6632400C8D81F /* plane */ = {
+			isa = PBXGroup;
+			children = (
+				D85FCEE725C6633E00C8D81F /* PlaneView.swift */,
+			);
+			path = plane;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,6 +235,7 @@
 				C2BFBC7225C5DC3D006144DA /* Snooze.swift in Sources */,
 				C2BFBC5725C5D96E006144DA /* ContentView.swift in Sources */,
 				C2BFBC7B25C5DE23006144DA /* Intake.swift in Sources */,
+				D85FCEE825C6633E00C8D81F /* PlaneView.swift in Sources */,
 				C2BFBC5525C5D96E006144DA /* american_airlines_appApp.swift in Sources */,
 				C2BFBC6B25C5DC1F006144DA /* Diedrate.swift in Sources */,
 				C2BFBC6F25C5DC2D006144DA /* GetBuff.swift in Sources */,

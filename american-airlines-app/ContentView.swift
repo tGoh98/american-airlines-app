@@ -6,15 +6,42 @@
 //
 
 import SwiftUI
+import Foundation
+
 
 struct ContentView: View {
     @EnvironmentObject var modelData: ModelData
     @State var selectedTab = 2
+    @State var planeImg: Image = Image("aaLogo")
     
     init() {
-        UITabBar.appearance().barTintColor = UIColor(hexString: "#FFFFFF")
+        UITabBar.appearance().barTintColor = UIColor.white
         UITabBar.appearance().backgroundColor = UIColor.white
+        
     }
+    
+    
+    func getMapUrl(text:String) -> String {
+        let pattern = #"(?<=fvPublicSiteFT)(.*?)(?=">)"#
+        let regex = try! NSRegularExpression(pattern: pattern, options: .anchorsMatchLines)
+        let stringRange = NSRange(location: 0, length: text.utf16.count)
+        let mapstring = regex.firstMatch(in: text, range: stringRange)
+        let r = mapstring?.range
+        let matchStr = (text as NSString).substring(with: r!)
+        
+//        let timeRemPat = #"(?<=Time Remaining:)(.*?)(?=">)"#
+        return matchStr.replacingOccurrences(of: "&amp;", with: "&")
+    }
+    
+    
+    
+    
+    func downloadImage(from: URL) {
+        
+    }
+    
+    
+    
     
     var body: some View {
         ZStack {
@@ -47,7 +74,7 @@ struct ContentView: View {
                             .padding(.trailing, 20)
                             .padding(.top, 20)
                             .padding(.bottom, 40)
-                        Text("plane")
+                        PlaneView(pImg: planeImg)
                             .background(BackgroundHelper())
                             .tabItem {
                                 Text("")
@@ -72,7 +99,65 @@ struct ContentView: View {
                             Image(selectedTab == 1 ? "waterIconSelected" : "waterIcon")
                         }
                         .frame(maxWidth: .infinity)
-                        Button(action: { self.selectedTab = 2 }) {
+                        Button(action: {
+                            let url = URL(string: "https://www.flightview.com/TravelTools/FlightTrackerQueryResults.asp?qtype=sfi&sfw=%2FFV%2FTravelTools%2FMain&whenArrDep=dep&namal=AA+American+Airlines&al=AA&fn=" + modelData.fn + "&whenDate=" + modelData.date + "&input=Track+Flight")
+                            
+                            
+                            self.selectedTab = 2
+                            let request = NSMutableURLRequest(url: url! as URL)
+                            let session = URLSession.shared
+                            
+                            request.httpMethod = "GET"
+                            request.addValue("User-Agent", forHTTPHeaderField: "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36")
+                            request.addValue("Upgrade-Insecure-Requests", forHTTPHeaderField: "1")
+                            request.addValue("DNT", forHTTPHeaderField: "1")
+                            request.addValue("Accept", forHTTPHeaderField: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8")
+                            request.addValue("Accept-Language", forHTTPHeaderField: "en-US,en;q=0.5")
+                            request.addValue("Accept-Encoding", forHTTPHeaderField: "gzip, deflate")
+                            
+                            
+                            
+                            let task = session.dataTask(with: request as URLRequest) {
+                                data, response, error in guard let data = data else {return}
+                                do {
+                                    let contents = String(data: data, encoding: String.Encoding.utf8)
+                                    
+                                    
+//                                    print(contents)
+                                    let parsedMapStr =  getMapUrl(text: contents!)
+                                    let mapUrl = URL(string: "https://www.flightview.com/fvPublicSiteFT" + parsedMapStr)
+                                    print(mapUrl)
+                                    let maptask = session.dataTask(with: mapUrl!) {(data, resp, error) in
+                                        if let e = error {
+                                            print("Error retrievinng map photo: \(e)")
+                                        } else {
+                                            if let res = resp as? HTTPURLResponse {
+                                                print("downloaed pic data with code \(res.statusCode)")
+                                                if let imageData = data {
+                                                    let image = UIImage(data: imageData)
+//                                                    modelData.planeImg = Image(uiImage: image!)
+//                                                    modelData.planeImg = Image("alarmIcon")
+                                                    planeImg = Image(uiImage: image!)
+                                                } else {
+                                                    print("Couldnnt get image, it is nil")
+                                                }
+                                            } else {
+                                                print("couldnt get response code")
+                                            }
+                                        }
+                                        
+                                    }
+                                    maptask.resume()
+                                    
+                                    
+                                } catch let error {
+                                    print(error.localizedDescription)
+                                }
+                                
+                            }
+                            task.resume()
+                            
+                        }) {
                             Image(selectedTab == 2 ? "planeIconSelected" : "planeIcon")
                         }
                         .frame(maxWidth: .infinity)
@@ -102,14 +187,37 @@ struct ContentView: View {
                 .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
         )
     }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-            .environmentObject(ModelData())
+    
+    
+    struct ContentView_Previews: PreviewProvider {
+        static var previews: some View {
+            ContentView()
+                .environmentObject(ModelData())
+        }
+    }
+    
+    
+    struct BackgroundHelper: UIViewRepresentable {
+        func makeUIView(context: Context) -> UIView {
+            let view = UIView()
+            DispatchQueue.main.async {
+                // find first superview with color and make it transparent
+                var parent = view.superview
+                repeat {
+                    if parent?.backgroundColor != nil {
+                        parent?.backgroundColor = UIColor.clear
+                        break
+                    }
+                    parent = parent?.superview
+                } while (parent != nil)
+            }
+            return view
+        }
+        
+        func updateUIView(_ uiView: UIView, context: Context) {}
     }
 }
+
 
 extension UIColor {
     convenience init(hexString: String) {
@@ -131,22 +239,3 @@ extension UIColor {
     }
 }
 
-struct BackgroundHelper: UIViewRepresentable {
-    func makeUIView(context: Context) -> UIView {
-        let view = UIView()
-        DispatchQueue.main.async {
-            // find first superview with color and make it transparent
-            var parent = view.superview
-            repeat {
-                if parent?.backgroundColor != nil {
-                    parent?.backgroundColor = UIColor.clear
-                    break
-                }
-                parent = parent?.superview
-            } while (parent != nil)
-        }
-        return view
-    }
-    
-    func updateUIView(_ uiView: UIView, context: Context) {}
-}
