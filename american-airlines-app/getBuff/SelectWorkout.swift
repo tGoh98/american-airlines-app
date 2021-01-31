@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SelectWorkout: View {
     @Binding var buffIndex: Int
+    @Binding var selectedExercise: Int
     
     var body: some View {
         VStack {
@@ -17,23 +18,34 @@ struct SelectWorkout: View {
                     self.buffIndex = 0
                 }) {
                     Image("leftArrow")
+                        .frame(minWidth: 50, minHeight: 25)
+                        .contentShape(Rectangle())
                 }
+                Spacer()
                 Text("Select Workout")
                     .font(Font.title2.weight(.semibold))
                     .foregroundColor(Color.init(hex: "0E57BD"))
                     .padding()
-                    .offset(x: 50)
+                    .offset(x: -95)
             }
-            .padding(.trailing, 100)
             
             VStack(spacing: 50) {
-                Button(action: { self.buffIndex = 3 }) {
+                Button(action: {
+                    self.selectedExercise = Int.random(in: 1..<7)
+                    self.buffIndex = 3
+                }) {
                     Image("seatedExercises")
                 }
-                Button(action: { self.buffIndex = 4 }) {
+                Button(action: {
+                    self.selectedExercise = Int.random(in: 7..<10)
+                    self.buffIndex = 3
+                }) {
                     Image("standingExercises")
                 }
-                Button(action: { self.buffIndex = 5 }) {
+                Button(action: {
+                    self.selectedExercise = Int.random(in: 1..<10)
+                    self.buffIndex = 3
+                }) {
                     Image("allExercises")
                 }
             }.padding(.bottom, 40)
@@ -49,6 +61,6 @@ struct SelectWorkout: View {
 
 struct SelectWorkout_Previews: PreviewProvider {
     static var previews: some View {
-        SelectWorkout(buffIndex: .constant(2))
+        SelectWorkout(buffIndex: .constant(2), selectedExercise: .constant(1))
     }
 }
