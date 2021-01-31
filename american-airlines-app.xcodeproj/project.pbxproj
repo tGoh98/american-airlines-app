@@ -10,6 +10,7 @@
 		9BAA9DB568DB4C81282275EB /* Pods_american_airlines_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94472B98823B7DFA3290F6F2 /* Pods_american_airlines_app.framework */; };
 		C20DDC4325C6AF71002D711B /* Splash.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20DDC4225C6AF71002D711B /* Splash.swift */; };
 		C20DDC4525C6B005002D711B /* splash.gif in Resources */ = {isa = PBXBuildFile; fileRef = C20DDC4425C6B005002D711B /* splash.gif */; };
+		C20DDC4B25C6BD0E002D711B /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20DDC4A25C6BD0E002D711B /* Login.swift */; };
 		C2BCE25025C67B27005EBDDA /* CountdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BCE24F25C67B27005EBDDA /* CountdownView.swift */; };
 		C2BCE25325C6A356005EBDDA /* AnimatedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BCE25225C6A355005EBDDA /* AnimatedImageView.swift */; };
 		C2BFBC5525C5D96E006144DA /* american_airlines_appApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BFBC5425C5D96E006144DA /* american_airlines_appApp.swift */; };
@@ -55,6 +56,7 @@
 		94AA020E30D6A7589C46F9FE /* Pods-american-airlines-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-american-airlines-app.debug.xcconfig"; path = "Target Support Files/Pods-american-airlines-app/Pods-american-airlines-app.debug.xcconfig"; sourceTree = "<group>"; };
 		C20DDC4225C6AF71002D711B /* Splash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Splash.swift; sourceTree = "<group>"; };
 		C20DDC4425C6B005002D711B /* splash.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = splash.gif; sourceTree = "<group>"; };
+		C20DDC4A25C6BD0E002D711B /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		C2BCE24F25C67B27005EBDDA /* CountdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownView.swift; sourceTree = "<group>"; };
 		C2BCE25225C6A355005EBDDA /* AnimatedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedImageView.swift; sourceTree = "<group>"; };
 		C2BFBC5125C5D96E006144DA /* american-airlines-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "american-airlines-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,6 +122,14 @@
 			path = splash;
 			sourceTree = "<group>";
 		};
+		C20DDC4925C6BCE0002D711B /* login */ = {
+			isa = PBXGroup;
+			children = (
+				C20DDC4A25C6BD0E002D711B /* Login.swift */,
+			);
+			path = login;
+			sourceTree = "<group>";
+		};
 		C2BFBC4825C5D96E006144DA = {
 			isa = PBXGroup;
 			children = (
@@ -141,6 +151,7 @@
 		C2BFBC5325C5D96E006144DA /* american-airlines-app */ = {
 			isa = PBXGroup;
 			children = (
+				C20DDC4925C6BCE0002D711B /* login */,
 				C20DDC4625C6B00D002D711B /* splash */,
 				D85FCEF825C6841800C8D81F /* GoogleService-Info.plist */,
 				D85FCEE625C6632400C8D81F /* plane */,
@@ -356,6 +367,7 @@
 				C2BCE25025C67B27005EBDDA /* CountdownView.swift in Sources */,
 				C2BFBC8725C654D5006144DA /* ExerciseCard.swift in Sources */,
 				D85FCEE825C6633E00C8D81F /* PlaneView.swift in Sources */,
+				C20DDC4B25C6BD0E002D711B /* Login.swift in Sources */,
 				D85FCEF725C67DAE00C8D81F /* Request.swift in Sources */,
 				C2BFBC5525C5D96E006144DA /* american_airlines_appApp.swift in Sources */,
 				C2BFBC8525C65068006144DA /* PlaneExercises.swift in Sources */,

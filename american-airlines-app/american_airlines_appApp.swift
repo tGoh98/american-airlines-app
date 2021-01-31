@@ -11,7 +11,7 @@ import Firebase
 @main
 struct american_airlines_appApp: App {
     @StateObject private var modelData = ModelData()
-    @State var loading: Bool = true
+    @State var step: Int = 0
     let splashTimer = Timer.publish(every: 5, on: .current, in: .common).autoconnect()
     
     init() {
@@ -20,8 +20,11 @@ struct american_airlines_appApp: App {
     
     var body: some Scene {
         WindowGroup {
-            if (loading) {
+            if (step == 0) {
                 Splash()
+            } else if (step == 1) {
+                Login(step: $step)
+                    .environmentObject(modelData)
             } else {
                 ContentView()
                     .environmentObject(modelData)
@@ -29,7 +32,9 @@ struct american_airlines_appApp: App {
             Text("")
                 .frame(maxWidth: 0, maxHeight:0)
                 .onReceive(splashTimer) { _ in
-                    self.loading = false
+                    if (self.step == 0) {
+                        self.step += 1
+                    }
                 }
         }
     }
