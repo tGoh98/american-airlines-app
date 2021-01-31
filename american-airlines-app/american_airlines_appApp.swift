@@ -12,7 +12,7 @@ import Firebase
 struct american_airlines_appApp: App {
     @StateObject private var modelData = ModelData()
     @State var step: Int = 0
-    let splashTimer = Timer.publish(every: 5, on: .current, in: .common).autoconnect()
+    let splashTimer = Timer.publish(every: 3, on: .current, in: .common).autoconnect()
     
     init() {
         FirebaseApp.configure()

@@ -46,7 +46,7 @@ struct ExerciseDesc: View {
                 }
                 Divider()
                 HStack {
-                    Text("Seated Exercises")
+                    Text("Standing Exercises")
                         .foregroundColor(Color.init(hex: "0E57BD"))
                         .padding(.horizontal)
                     Spacer()
