@@ -8,6 +8,7 @@ target 'american-airlines-app' do
   # Pods for american-airlines-app
   pod 'Firebase/Analytics'
   pod 'Firebase/Database'
+  pod 'FLAnimatedImage'
   
 
 end

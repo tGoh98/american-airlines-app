@@ -32,7 +32,7 @@ struct ContentView: View {
         let r = mapstring?.range
         let matchStr = (text as NSString).substring(with: r!)
         
-//        let timeRemPat = #"(?<=Time Remaining:)(.*?)(?=">)"#
+        //        let timeRemPat = #"(?<=Time Remaining:)(.*?)(?=">)"#
         return matchStr.replacingOccurrences(of: "&amp;", with: "&")
     }
     
@@ -132,7 +132,7 @@ struct ContentView: View {
                                     let contents = String(data: data, encoding: String.Encoding.utf8)
                                     
                                     
-//                                    print(contents)
+                                    //                                    print(contents)
                                     let parsedMapStr =  getMapUrl(text: contents!)
                                     let mapUrl = URL(string: "https://www.flightview.com/fvPublicSiteFT" + parsedMapStr)
                                     print(mapUrl)
@@ -144,8 +144,8 @@ struct ContentView: View {
                                                 print("downloaed pic data with code \(res.statusCode)")
                                                 if let imageData = data {
                                                     let image = UIImage(data: imageData)
-//                                                    modelData.planeImg = Image(uiImage: image!)
-//                                                    modelData.planeImg = Image("alarmIcon")
+                                                    //                                                    modelData.planeImg = Image(uiImage: image!)
+                                                    //                                                    modelData.planeImg = Image("alarmIcon")
                                                     planeImg = Image(uiImage: image!)
                                                 } else {
                                                     print("Couldnnt get image, it is nil")
