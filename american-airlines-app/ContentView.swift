@@ -12,7 +12,7 @@ import Foundation
 struct ContentView: View {
     @EnvironmentObject var modelData: ModelData
     let backgroundImages = ["backgroundImg1", "backgroundImg2", "backgroundImg3", "backgroundImg4", "backgroundImg5", "backgroundImg6"]
-    @State var activeImageIndex = 0
+    @State var activeImageIndex = 3
     let imageSwitchTimer = Timer.publish(every: 30, on: .main, in: .common).autoconnect()
     @State var selectedTab = 2
     @State var planeImg: Image = Image("aaLogo")

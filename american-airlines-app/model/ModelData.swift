@@ -26,7 +26,7 @@ final class ModelData: ObservableObject {
     var speed: String = ""
     var altitude: String = ""
     
-    
+    var attendantMode: Bool = false
     
    
 }
