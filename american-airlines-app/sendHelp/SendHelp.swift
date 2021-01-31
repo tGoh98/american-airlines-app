@@ -11,17 +11,26 @@ import FirebaseDatabase
 struct SendHelp: View {
     @State private var content: String = ""
     @EnvironmentObject var modelData: ModelData
-    var dbref: DatabaseReference = Database.database().reference()
-    
+//    var dbref: DatabaseReference = Database.database().reference()
+    @State private var queue: String = ""
+    let access:DBAccess = DBAccess(dbref: Database.database().reference()) // has to be out here so doesnt reload ever time u click button
+
     
     var body: some View {
-        var access:DBAccess = DBAccess(dbref: dbref)
-
+        
         
         VStack{
+            Text(queue).font(Font.title2.weight(.semibold))
+                .foregroundColor(Color.init(hex: "0E57BD"))
+                .padding()
+            
             HStack {
                 Button(action: {
+                    access.getNumAhead(time: Date.init())
                     access.sendRequest(id: modelData.seatnum, name: modelData.name, time: Date.init(), content: "May I have some water please?")
+                    
+                    queue = "We'll be sure to get that water as soon nas possible, there are " + String(access.numahead) + " others waiting right now."
+                        
                 }) {
                     Text("I'd like some water, please")
                         .font(Font.title2.weight(.semibold))

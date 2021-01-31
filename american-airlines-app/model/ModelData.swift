@@ -14,8 +14,8 @@ final class ModelData: ObservableObject {
     @Published var date = "20210130" // TODO: get current date
     
     var planeImg: Image = Image("aaLogo")
-    var name: String = ""
-    var seatnum: String = ""
+    var name: String = "Tim"
+    var seatnum: String = String(Int.random(in: 0..<40)) + String("ABCDEFGHIJKLMNOP".randomElement()!)
     var dest: String = ""
     var start: String  = ""
     var timeRem: String  = ""
