@@ -31,16 +31,92 @@ struct ContentView: View {
         let mapstring = regex.firstMatch(in: text, range: stringRange)
         let r = mapstring?.range
         let matchStr = (text as NSString).substring(with: r!)
-        
-        //        let timeRemPat = #"(?<=Time Remaining:)(.*?)(?=">)"#
+                
         return matchStr.replacingOccurrences(of: "&amp;", with: "&")
+    }
+    
+//    let timeRemPat = #"(?<=Time Remaining:)(.*?)(?=min<)"#
+//    let altitude = #"(?<=Altitude)(.*?)(?=">feet)"#
+//
+    func getTimeRem(text: String) -> String {
+        let timeRemPat = #"(?<=Time Remaining:)(.*?)(?=min<)"#
+        let regex = try! NSRegularExpression(pattern: timeRemPat, options: .anchorsMatchLines)
+        let stringRange = NSRange(location: 1000, length: text.utf16.count)
+        let mapstring = regex.firstMatch(in: text, range: stringRange)
+        let r = mapstring?.range
+        let matchStr = (text as NSString).substring(with: r!)
+        let regex2 = try! NSRegularExpression(pattern: #"[0-9]+"#, options: .anchorsMatchLines)
+        return (text as NSString).substring(with: (regex2.firstMatch(in: matchStr, range: NSRange(location: 0, length: matchStr.utf16.count))?.range)!)
+    }
+
+    func getAlt(text: String) -> String {
+        let timeRemPat = #"(?<=FlightTrackerData)(.*?)(?=">feet)"#
+        let regex = try! NSRegularExpression(pattern: timeRemPat, options: .anchorsMatchLines)
+        let stringRange = NSRange(location: 1000, length: text.utf16.count)
+        let mapstring = regex.firstMatch(in: text, range: stringRange)
+        let r = mapstring?.range
+        let matchStr = (text as NSString).substring(with: r!)
+        let regex2 = try! NSRegularExpression(pattern: #"[0-9]+"#, options: .anchorsMatchLines)
+        return (text as NSString).substring(with: (regex2.firstMatch(in: matchStr, range: NSRange(location: 0, length: matchStr.utf16.count))?.range)!)
     }
     
     
     
     
-    func downloadImage(from: URL) {
+    func downloadImage() {
+        let url = URL(string: "https://www.flightview.com/TravelTools/FlightTrackerQueryResults.asp?qtype=sfi&sfw=%2FFV%2FTravelTools%2FMain&whenArrDep=dep&namal=AA+American+Airlines&al=AA&fn=" + modelData.fn + "&whenDate=" + modelData.date + "&input=Track+Flight")
         
+        
+        self.selectedTab = 2
+        let request = NSMutableURLRequest(url: url! as URL)
+        let session = URLSession.shared
+        
+        request.httpMethod = "GET"
+        request.addValue("User-Agent", forHTTPHeaderField: "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36")
+        request.addValue("Upgrade-Insecure-Requests", forHTTPHeaderField: "1")
+        request.addValue("DNT", forHTTPHeaderField: "1")
+        request.addValue("Accept", forHTTPHeaderField: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8")
+        request.addValue("Accept-Language", forHTTPHeaderField: "en-US,en;q=0.5")
+        request.addValue("Accept-Encoding", forHTTPHeaderField: "gzip, deflate")
+        
+        
+        
+        let task = session.dataTask(with: request as URLRequest) {
+            data, response, error in guard let data = data else {return}
+            do {
+                let contents = String(data: data, encoding: String.Encoding.utf8)
+                let parsedMapStr =  getMapUrl(text: contents!)
+                let mapUrl = URL(string: "https://www.flightview.com/fvPublicSiteFT" + parsedMapStr)
+                print(mapUrl)
+                let maptask = session.dataTask(with: mapUrl!) {(data, resp, error) in
+                    if let e = error {
+                        print("Error retrievinng map photo: \(e)")
+                    } else {
+                        if let res = resp as? HTTPURLResponse {
+                            print("downloaed pic data with code \(res.statusCode)")
+                            if let imageData = data {
+                                let image = UIImage(data: imageData)
+                                //                                                    modelData.planeImg = Image(uiImage: image!)
+                                //                                                    modelData.planeImg = Image("alarmIcon")
+                                planeImg = Image(uiImage: image!)
+                            } else {
+                                print("Couldnnt get image, it is nil")
+                            }
+                        } else {
+                            print("couldnt get response code")
+                        }
+                    }
+                    
+                }
+                maptask.resume()
+                
+                
+            } catch let error {
+                print(error.localizedDescription)
+            }
+            
+        }
+        task.resume()
     }
     
     
@@ -93,7 +169,7 @@ struct ContentView: View {
                             .tabItem {
                                 Text("")
                             }.tag(3)
-                        Attendant()
+                        SendHelp()
                             .background(BackgroundHelper())
                             .tabItem {
                                 Text("")
@@ -109,63 +185,7 @@ struct ContentView: View {
                         }
                         .frame(maxWidth: .infinity)
                         Button(action: {
-                            let url = URL(string: "https://www.flightview.com/TravelTools/FlightTrackerQueryResults.asp?qtype=sfi&sfw=%2FFV%2FTravelTools%2FMain&whenArrDep=dep&namal=AA+American+Airlines&al=AA&fn=" + modelData.fn + "&whenDate=" + modelData.date + "&input=Track+Flight")
-                            
-                            
-                            self.selectedTab = 2
-                            let request = NSMutableURLRequest(url: url! as URL)
-                            let session = URLSession.shared
-                            
-                            request.httpMethod = "GET"
-                            request.addValue("User-Agent", forHTTPHeaderField: "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36")
-                            request.addValue("Upgrade-Insecure-Requests", forHTTPHeaderField: "1")
-                            request.addValue("DNT", forHTTPHeaderField: "1")
-                            request.addValue("Accept", forHTTPHeaderField: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8")
-                            request.addValue("Accept-Language", forHTTPHeaderField: "en-US,en;q=0.5")
-                            request.addValue("Accept-Encoding", forHTTPHeaderField: "gzip, deflate")
-                            
-                            
-                            
-                            let task = session.dataTask(with: request as URLRequest) {
-                                data, response, error in guard let data = data else {return}
-                                do {
-                                    let contents = String(data: data, encoding: String.Encoding.utf8)
-                                    
-                                    
-                                    //                                    print(contents)
-                                    let parsedMapStr =  getMapUrl(text: contents!)
-                                    let mapUrl = URL(string: "https://www.flightview.com/fvPublicSiteFT" + parsedMapStr)
-                                    print(mapUrl)
-                                    let maptask = session.dataTask(with: mapUrl!) {(data, resp, error) in
-                                        if let e = error {
-                                            print("Error retrievinng map photo: \(e)")
-                                        } else {
-                                            if let res = resp as? HTTPURLResponse {
-                                                print("downloaed pic data with code \(res.statusCode)")
-                                                if let imageData = data {
-                                                    let image = UIImage(data: imageData)
-                                                    //                                                    modelData.planeImg = Image(uiImage: image!)
-                                                    //                                                    modelData.planeImg = Image("alarmIcon")
-                                                    planeImg = Image(uiImage: image!)
-                                                } else {
-                                                    print("Couldnnt get image, it is nil")
-                                                }
-                                            } else {
-                                                print("couldnt get response code")
-                                            }
-                                        }
-                                        
-                                    }
-                                    maptask.resume()
-                                    
-                                    
-                                } catch let error {
-                                    print(error.localizedDescription)
-                                }
-                                
-                            }
-                            task.resume()
-                            
+                            downloadImage()
                         }) {
                             Image(selectedTab == 2 ? "planeIconSelected" : "planeIcon")
                         }
