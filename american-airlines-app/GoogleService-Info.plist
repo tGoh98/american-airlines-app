@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1029580543026-a2qrdr2ote70k5jdbduhtiqv4rlmvh8s.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1029580543026-a2qrdr2ote70k5jdbduhtiqv4rlmvh8s</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA9V-9KEn_L_1wFw6tnlhr_nmYUOwTE5e4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1029580543026</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.timothygoh.american-airlines-app</string>
+	<key>PROJECT_ID</key>
+	<string>qualified-glow-252103</string>
+	<key>STORAGE_BUCKET</key>
+	<string>qualified-glow-252103.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1029580543026:ios:40a71250f96a908728d82b</string>
+	<key>DATABASE_URL</key>
+	<string>https://qualified-glow-252103-default-rtdb.firebaseio.com</string>
+</dict>
+</plist>
