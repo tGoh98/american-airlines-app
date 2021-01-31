@@ -24,6 +24,7 @@
 		C2BFBC8725C654D5006144DA /* ExerciseCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BFBC8625C654D5006144DA /* ExerciseCard.swift */; };
 		C2BFBC8925C66DA7006144DA /* SelectWorkout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BFBC8825C66DA7006144DA /* SelectWorkout.swift */; };
 		C2BFBC8B25C67761006144DA /* WorkingOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BFBC8A25C67761006144DA /* WorkingOut.swift */; };
+		D85FCEE825C6633E00C8D81F /* PlaneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85FCEE725C6633E00C8D81F /* PlaneView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -58,6 +59,7 @@
 		C2BFBC8625C654D5006144DA /* ExerciseCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCard.swift; sourceTree = "<group>"; };
 		C2BFBC8825C66DA7006144DA /* SelectWorkout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectWorkout.swift; sourceTree = "<group>"; };
 		C2BFBC8A25C67761006144DA /* WorkingOut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkingOut.swift; sourceTree = "<group>"; };
+		D85FCEE725C6633E00C8D81F /* PlaneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaneView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 		C2BFBC5325C5D96E006144DA /* american-airlines-app */ = {
 			isa = PBXGroup;
 			children = (
+				D85FCEE625C6632400C8D81F /* plane */,
 				C2BFBC6925C5DC0D006144DA /* sendHelp */,
 				C2BFBC6825C5DC08006144DA /* snooze */,
 				C2BFBC6725C5DC04006144DA /* getBuff */,
@@ -157,6 +160,14 @@
 				C2BFBC7425C5DC49006144DA /* SendHelp.swift */,
 			);
 			path = sendHelp;
+			sourceTree = "<group>";
+		};
+		D85FCEE625C6632400C8D81F /* plane */ = {
+			isa = PBXGroup;
+			children = (
+				D85FCEE725C6633E00C8D81F /* PlaneView.swift */,
+			);
+			path = plane;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,6 +253,7 @@
 				C2BFBC5725C5D96E006144DA /* ContentView.swift in Sources */,
 				C2BFBC7B25C5DE23006144DA /* Intake.swift in Sources */,
 				C2BFBC8725C654D5006144DA /* ExerciseCard.swift in Sources */,
+				D85FCEE825C6633E00C8D81F /* PlaneView.swift in Sources */,
 				C2BFBC5525C5D96E006144DA /* american_airlines_appApp.swift in Sources */,
 				C2BFBC8525C65068006144DA /* PlaneExercises.swift in Sources */,
 				C2BFBC6B25C5DC1F006144DA /* Diedrate.swift in Sources */,
