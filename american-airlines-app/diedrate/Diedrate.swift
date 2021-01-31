@@ -38,8 +38,11 @@ struct Diedrate: View {
                     HStack {
                         Button(action: { self.firstPage.toggle() }) {
                             Image("leftArrow")
+                                .frame(minWidth: 50, minHeight: 25)
+                                .contentShape(Rectangle())
                                 .padding(.bottom, 90)
                                 .padding(.trailing, 180)
+                                .offset(x: -10)
                         }
                         VStack {
                             Button(action: {
@@ -82,7 +85,7 @@ struct Diedrate: View {
                             }) {
                                 Text("Reset")
                             }
-                            .offset(x: 100)
+                            .offset(x: 75)
                         }
                         .offset(x:-55)
                     }
@@ -115,13 +118,15 @@ struct Diedrate: View {
                         .padding(.top, 30)
                         .padding(.bottom, 140)
                         .padding(.leading, 60)
-                        .padding(.trailing, 20)
                         
                         Button(action: {
                             self.firstPage.toggle()
                         }) {
                             Image("rightArrow")
+                                .frame(minWidth: 50, minHeight: 25)
+                                .contentShape(Rectangle())
                                 .padding(.bottom, 90)
+                                .offset(x: 15)
                         }
                     }
                 }
