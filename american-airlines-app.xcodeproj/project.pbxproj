@@ -19,6 +19,11 @@
 		C2BFBC7B25C5DE23006144DA /* Intake.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BFBC7A25C5DE23006144DA /* Intake.swift */; };
 		C2BFBC7F25C5EAF5006144DA /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = C2BFBC7E25C5EAF5006144DA /* ConfettiSwiftUI */; };
 		C2BFBC8025C5EAF5006144DA /* ConfettiSwiftUI in Embed Frameworks */ = {isa = PBXBuildFile; productRef = C2BFBC7E25C5EAF5006144DA /* ConfettiSwiftUI */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		C2BFBC8325C64FC9006144DA /* ExerciseDesc.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BFBC8225C64FC8006144DA /* ExerciseDesc.swift */; };
+		C2BFBC8525C65068006144DA /* PlaneExercises.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BFBC8425C65068006144DA /* PlaneExercises.swift */; };
+		C2BFBC8725C654D5006144DA /* ExerciseCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BFBC8625C654D5006144DA /* ExerciseCard.swift */; };
+		C2BFBC8925C66DA7006144DA /* SelectWorkout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BFBC8825C66DA7006144DA /* SelectWorkout.swift */; };
+		C2BFBC8B25C67761006144DA /* WorkingOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BFBC8A25C67761006144DA /* WorkingOut.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -48,6 +53,11 @@
 		C2BFBC7425C5DC49006144DA /* SendHelp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendHelp.swift; sourceTree = "<group>"; };
 		C2BFBC7725C5DE03006144DA /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		C2BFBC7A25C5DE23006144DA /* Intake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intake.swift; sourceTree = "<group>"; };
+		C2BFBC8225C64FC8006144DA /* ExerciseDesc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDesc.swift; sourceTree = "<group>"; };
+		C2BFBC8425C65068006144DA /* PlaneExercises.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaneExercises.swift; sourceTree = "<group>"; };
+		C2BFBC8625C654D5006144DA /* ExerciseCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCard.swift; sourceTree = "<group>"; };
+		C2BFBC8825C66DA7006144DA /* SelectWorkout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectWorkout.swift; sourceTree = "<group>"; };
+		C2BFBC8A25C67761006144DA /* WorkingOut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkingOut.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +134,11 @@
 			isa = PBXGroup;
 			children = (
 				C2BFBC6E25C5DC2D006144DA /* GetBuff.swift */,
+				C2BFBC8225C64FC8006144DA /* ExerciseDesc.swift */,
+				C2BFBC8425C65068006144DA /* PlaneExercises.swift */,
+				C2BFBC8625C654D5006144DA /* ExerciseCard.swift */,
+				C2BFBC8825C66DA7006144DA /* SelectWorkout.swift */,
+				C2BFBC8A25C67761006144DA /* WorkingOut.swift */,
 			);
 			path = getBuff;
 			sourceTree = "<group>";
@@ -220,12 +235,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2BFBC8B25C67761006144DA /* WorkingOut.swift in Sources */,
+				C2BFBC8325C64FC9006144DA /* ExerciseDesc.swift in Sources */,
 				C2BFBC7525C5DC49006144DA /* SendHelp.swift in Sources */,
 				C2BFBC7225C5DC3D006144DA /* Snooze.swift in Sources */,
 				C2BFBC5725C5D96E006144DA /* ContentView.swift in Sources */,
 				C2BFBC7B25C5DE23006144DA /* Intake.swift in Sources */,
+				C2BFBC8725C654D5006144DA /* ExerciseCard.swift in Sources */,
 				C2BFBC5525C5D96E006144DA /* american_airlines_appApp.swift in Sources */,
+				C2BFBC8525C65068006144DA /* PlaneExercises.swift in Sources */,
 				C2BFBC6B25C5DC1F006144DA /* Diedrate.swift in Sources */,
+				C2BFBC8925C66DA7006144DA /* SelectWorkout.swift in Sources */,
 				C2BFBC6F25C5DC2D006144DA /* GetBuff.swift in Sources */,
 				C2BFBC7825C5DE03006144DA /* ModelData.swift in Sources */,
 			);

@@ -8,5 +8,5 @@
 import Foundation
 
 final class ModelData: ObservableObject {
-    @Published var intake: Intake = Intake(curIntake: 0, neededIntake: 10)
+    @Published var intake: Intake = Intake(curIntake: 0, neededIntake: 2000)
 }

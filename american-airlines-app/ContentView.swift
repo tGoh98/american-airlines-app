@@ -9,10 +9,14 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var modelData: ModelData
-    @State var selectedTab = 2
+    @State var selectedTab = 0
+    let backgroundImages = ["backgroundImg1", "backgroundImg2", "backgroundImg3", "backgroundImg4", "backgroundImg5", "backgroundImg6"]
+    @State var activeImageIndex = 0
+    let imageSwitchTimer = Timer.publish(every: 30, on: .main, in: .common).autoconnect()
+    
     
     init() {
-        UITabBar.appearance().barTintColor = UIColor(hexString: "#FFFFFF")
+        UITabBar.appearance().barTintColor = UIColor.white
         UITabBar.appearance().backgroundColor = UIColor.white
     }
     
@@ -35,7 +39,13 @@ struct ContentView: View {
                             .background(BackgroundHelper())
                             .tabItem {
                                 Text("")
-                            }.tag(0)
+                            }
+                            .tag(0)
+                            .background(Color.white.clipShape(RoundedRectangle(cornerRadius: 8.0)))
+                            .padding(.leading, 20)
+                            .padding(.trailing, 20)
+                            .padding(.top, 20)
+                            .padding(.bottom, 40)
                         Diedrate()
                             .background(BackgroundHelper())
                             .tabItem {
@@ -95,11 +105,17 @@ struct ContentView: View {
             }
         }
         .background(
-            Image("backgroundImg3")
+            Image(backgroundImages[activeImageIndex])
                 .resizable()
                 .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
                 .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
                 .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+                .animation(.easeInOut)
+                .onReceive(imageSwitchTimer) { _ in
+                    self.activeImageIndex = (self.activeImageIndex + 1) % self.backgroundImages.count
+                }
+                .colorMultiply(Color.init(hex: "d3d3d3"))
+                .saturation(0.5)
         )
     }
 }
@@ -108,26 +124,6 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
             .environmentObject(ModelData())
-    }
-}
-
-extension UIColor {
-    convenience init(hexString: String) {
-        let hex = hexString.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
-        var int = UInt64()
-        Scanner(string: hex).scanHexInt64(&int)
-        let a, r, g, b: UInt64
-        switch hex.count {
-        case 3: // RGB (12-bit)
-            (a, r, g, b) = (255, (int >> 8) * 17, (int >> 4 & 0xF) * 17, (int & 0xF) * 17)
-        case 6: // RGB (24-bit)
-            (a, r, g, b) = (255, int >> 16, int >> 8 & 0xFF, int & 0xFF)
-        case 8: // ARGB (32-bit)
-            (a, r, g, b) = (int >> 24, int >> 16 & 0xFF, int >> 8 & 0xFF, int & 0xFF)
-        default:
-            (a, r, g, b) = (255, 0, 0, 0)
-        }
-        self.init(red: CGFloat(r) / 255, green: CGFloat(g) / 255, blue: CGFloat(b) / 255, alpha: CGFloat(a) / 255)
     }
 }
 

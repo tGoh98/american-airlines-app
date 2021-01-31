@@ -8,16 +8,34 @@
 import SwiftUI
 
 struct GetBuff: View {
+    @State var buffIndex: Int = 3
+    // 0 is home
+    // 1 is desc
+    // 2 is select
+    // 3 is seated
+    // 4 is standing
+    // 5 is all
     
     var body: some View {
-        VStack {
-            Text("rah")
+        switch (buffIndex) {
+        case 0:
+            PlaneExercises(buffIndex: $buffIndex)
+                .padding(.horizontal, 25)
+        case 1:
+            ExerciseDesc(buffIndex: $buffIndex)
+        case 2:
+            SelectWorkout(buffIndex: $buffIndex)
+        case 3:
+            WorkingOut(buffIndex: $buffIndex)
+//        case 4:
+//            StandingExercises(buffIndex: $buffIndex)
+//        case 5:
+//            AllExercises(buffIndex: $buffIndex)
+        default:
+            Text("unrecognized")
         }
-        .cornerRadius(10)
-        .overlay(
-            RoundedRectangle(cornerRadius: 10)
-                .stroke(Color(.sRGB, red: 150/255, green: 150/255, blue: 150/255, opacity: 0.1), lineWidth: 1)
-        )
+        
+        
     }
 }
 
